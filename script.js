@@ -2,7 +2,7 @@ let employees = [];
 let regions = {};
 
 // JSON ფაილის ჩატვირთვა
-fetch('data.json') // Ensure this path is correct
+fetch('data.json') // Replace with the actual API endpoint // Ensure this path is correct
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -67,7 +67,7 @@ function loadEmployees(region) {
 
 // Login functionality
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('login-form').addEventListener('submit', function(event) {
+    document.getElementById('login-form').addEventListener('submit', function (event) {
         event.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
@@ -76,18 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (username === 'admin' && password === '123') {
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('search-container').style.display = 'block';
-            fetchEmployees(); // Start loading employees
         } else {
             document.getElementById('login-error').textContent = 'არასწორი მომხმარებლის სახელი ან პაროლი';
         }
     });
 
-    document.getElementById('logout-button').addEventListener('click', function() {
+    document.getElementById('logout-button').addEventListener('click', function () {
         document.getElementById('search-container').style.display = 'none';
         document.getElementById('login-form').style.display = 'block';
     });
 
-    document.getElementById('regions-button').addEventListener('click', function() {
+    document.getElementById('regions-button').addEventListener('click', function () {
         document.getElementById('regions-container').style.display = 'block';
         document.getElementById('employees-container').style.display = 'none';
     });
@@ -99,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Search function with debounce for performance optimization
 let timeout = null;
-document.getElementById('search').addEventListener('input', function() {
+document.getElementById('search').addEventListener('input', function () {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
         searchEmployee();
@@ -115,8 +114,8 @@ function searchEmployee() {
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = '';
 
-    const results = employees.filter(employee => 
-        employee['სახელი'].toLowerCase().includes(query) || 
+    const results = employees.filter(employee =>
+        employee['სახელი'].toLowerCase().includes(query) ||
         employee['გვარი'].toLowerCase().includes(query)
     );
 
@@ -150,7 +149,7 @@ function updateDateTime() {
 
 function updateWeather() {
     const weatherElement = document.getElementById('weather');
-    const apiKey = '4766347f15eebd3e30e46e21fd21560e'; // Replace with your actual API key
+    const apiKey = '9dc650980355bf8008b9cbeb022e3f40'; // Replace with your secured API key // Replace with your actual API key
     const location = 'Tbilisi'; // Replace with your actual location
 
     weatherElement.textContent = 'ამინდის ჩატვირთვა...';
