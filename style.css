@@ -1,0 +1,301 @@
+/* General styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background shapes */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: -50px;
+  left: -50px;
+  animation: move 5s infinite ease-in-out alternate;
+}
+
+.shape:nth-child(2) {
+  top: auto;
+  bottom: -50px;
+  right: -50px;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes move {
+  to {
+      transform: translate(50px, 50px);
+  }
+}
+
+/* Login form */
+#login-form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 320px;
+  margin-bottom: 20px;
+}
+
+#login-form h3 {
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+#login-form label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+#login-form input {
+  width: 100%;
+  padding: 10px 1px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+#login-form button {
+  width: 100%;
+  padding: 10px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#login-form button:hover {
+  background: #357ab8;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Center the login form on the page */
+form {
+
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+/* Search container */
+#search-container {
+  width: 100%;
+  display: none; /* Initially hidden */
+}
+
+.container-fluid {
+  background: #4a90e2;
+  color: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-fluid ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-fluid ul li {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#logout-button {
+  padding: 8px 15px;
+  background: #fff;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#logout-button:hover {
+  background: #046ce2;
+  color: #fff;
+}
+
+/* Main container */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+input#search {
+  width: 100%;
+  padding: 15px 1px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Search results */
+.search-results {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.search-results div {
+  padding: 15px;
+  border-bottom: 1px solid #eee; /* გამოყოფს თანამშრომლებს */
+  border-radius: 8px;
+  background-color: #f9f9f9; /* თეთრი ფონთან კონტრასტი */
+  margin-bottom: 10px; /* სივრცე შედეგებს შორის */
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ბოლო შედეგს ქვედა ზღვარი არ ექნება */
+.search-results div:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Hover ეფექტი */
+.search-results div:hover {
+  background-color: #e3f2fd; /* მსუბუქი ცისფერი ეფექტი */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* თანამშრომლის სახელი და ინფორმაცია */
+.employee-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.employee-info {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Footer */
+footer.container {
+  background: #4a90e2;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  font-size: 14px;
+  border-top: 2px solid #357ab8;
+}
+
+#footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#results p {
+  font-size: 16px;
+  color: #555;
+
+}
+
+.employee-card {
+  background: #f9f9f9;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.employee-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#regions-container, #employees-container {
+    margin-top: 20px;
+}
+
+#regions-list, #employees-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.region-button, .employee-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.region-button:hover, .employee-button:hover {
+    background-color: #0056b3;
+}
+
+button, .region-button, .employee-button {
+  padding: 8px 15px;
+  background: #fff;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover, .region-button:hover, .employee-button:hover {
+  background: #005fcc;
+  color: #fff;
+}
